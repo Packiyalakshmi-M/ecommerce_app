@@ -63,12 +63,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           id: event.productId,
           quantity: event.newQuantity,
         );
-
-        // Recalculate total price
-        // final totalPrice = updatedCartItems.fold<num>(
-        //   0,
-        //   (sum, item) => sum + (item.price * item.quantity),
-        // );
+        
         num totalPrice = 0;
         for (var item in updatedCartItems) {
           totalPrice = totalPrice + item.quantity * item.price;
